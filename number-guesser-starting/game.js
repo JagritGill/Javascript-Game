@@ -84,14 +84,21 @@ subtractButton.addEventListener('click', () => {
 });
 
 const handleValueChange = value => {
-  if (value > 0 && value <= 9) {
+  if (value > 0 && value <= 8) {
     subtractButton.removeAttribute('disabled');
     addButton.removeAttribute('disabled');
-  } else if (value > 9) {
+  } else if (value > 8) {
     addButton.setAttribute('disabled', true);
   } else if (value <= 0) {
     subtractButton.setAttribute('disabled', true);
-  }
+  };
+  if (value > 0 && value <= 8) {
+    guessButton.removeAttribute('disabled');
+  } else if (value > 9) {
+    guessButton.setAttribute('disabled', true);
+  } else if (value < 0) {
+    guessButton.setAttribute('disabled', true);
+  };
 }
 
 humanGuessInput.addEventListener('input', function(e) {
